@@ -1,68 +1,104 @@
-﻿# HTF25-Team-134
+# Recruitment & Resume Enhancement Platform
 
-## GitHub submission guide
+A smart platform for **candidates** and **recruiters** that leverages **GPT OSS** and other modern tools to enhance resumes, provide interview preparation, and assist recruiters in identifying the best candidates.
 
-In this Readme, you will find a guide on how to fork this Repository, add files to it, and make a pull request to contribute your changes.
+---
 
-<details open>
-<summary><h3>1. Login to your GitHub Account</h3></summary>
-<br>
-<p>Go to <a href="https://github.com">github.com</a> to log in.</p>
-<ul>
-   <li>Open the <a href="https://github.com/cbitosc/HTF25-Team-134">current repo</a> in a new tab.</li>
-   <li>Perform all operations in the newly opened tab, and follow the current tab for instructions.</li>
-</ul>
-</details>
+## Table of Contents
 
-<details open>
-<summary><h3>2. Fork the Repository</h3></summary>
-<br>
-<p align="center">
-  <img src="fork.jpeg" alt="Fork the Repository" height="300">
-</p>
-<ul>
- <li>In the newly opened tab, on the top-right corner, click on <b>Fork</b>.</li>
- <li>Enter the <b>Repository Name</b> as <b>HTF25-Team-134</b>.</li>
- <li>Then click <b>Create Fork</b>, leaving all other fields as default.</li>
- <li>After a few moments, you can view your forked repo.</li>
-</ul>
-</details>
+- [Overview](#overview)  
+- [Tech Stack](#tech-stack)  
+- [User Roles & Workflows](#user-roles--workflows)  
+  - [Candidate](#candidate)  
+  - [Recruiter](#recruiter)  
+- [System Architecture](#system-architecture)  
+- [Features](#features)  
+- [Setup & Installation](#setup--installation)  
+- [Usage](#usage)  
+- [License](#license)  
 
-<details open>
-<summary><h3>3. Clone your Repository</h3></summary>
-<br>
-<ul>
- <li>Click on <b>Code</b> and copy the <b>web URL</b> of your forked repository.</li>
- <li>Open terminal on your local machine.</li>
- <li>Run this command to clone the repo:</li>
-<pre><code>git clone https://github.com/your-username/HTF25-Team-134.git</code></pre>
-</ul>
-</details>
+---
 
-<details open>
-<summary><h3>4. Adding files to the Repository</h3></summary>
-<br>
-<ul>
- <li>While doing it for the first time, create a new branch for your changes:</li>
-<pre><code>git checkout -b branch-name</code></pre>
- <li>Add files or modify existing ones.</li>
- <li>Stage your changes:</li>
-<pre><code>git add .</code></pre>
- <li>Commit your changes:</li>
-<pre><code>git commit -m "Descriptive commit message"</code></pre>
- <li>Push your branch to your fork:</li>
-<pre><code>git push origin branch-name</code></pre>
-</ul>
-</details>
+## Overview
 
-<details open>
-<summary><h3>5. Create a Pull Request</h3></summary>
-<br>
-<ul>
- <li>Click on the <b>Contribute</b> button in your fork and choose <b>Open Pull Request</b>.</li>
- <li>Leave all fields as default, then click <b>Create Pull Request</b>.</li>
- <li>Wait a few moments; your PR is now submitted.</li>
-</ul>
-</details>
+This platform provides two main user roles:
 
-## Thanks for participating!
+1. **Candidates:** Upload resumes, get them enhanced with tips, generate interview questions, and track improvement areas.  
+2. **Recruiters:** Upload job descriptions and candidate resumes, view scoring, metrics, and select the best applicants.  
+
+The system integrates AI-driven resume enhancement, scoring, course suggestions, and polished PDF/HTML resume generation.
+
+---
+
+## Tech Stack
+
+- **Frontend:** Next.js  
+- **Backend:** Node.js + FastAPI  
+- **Database:** MongoDB  
+- **AI Engine:** GPT OSS  
+- **Search Engine:** For fetching certifications/courses (Candidate improvement)  
+- **Resume Generation:** Puppeteer (PDF/HTML output)  
+
+---
+
+## User Roles & Workflows
+
+### Candidate
+
+**Workflow:**
+
+1. Upload **resume** and **job description**.  
+2. System extracts text and sends it to GPT OSS via a **predefined template**.  
+3. GPT OSS returns:  
+   - Enhanced Resume  
+   - Resume Optimization Tips  
+   - Score vs job description  
+   - Weak areas / gaps  
+4. Fetch **certifications/courses** to improve skills via Search Engine API.  
+5. Optional: Generate **interview questions** via GPT OSS.  
+6. Generate polished resume (PDF/HTML) via Puppeteer.  
+7. **Dashboard:**  
+   - View scores  
+   - Weak areas  
+   - Suggested courses  
+   - Enhanced resume  
+
+---
+
+### Recruiter
+
+**Workflow:**
+
+1. Upload **job description** and multiple **candidate resumes**.  
+2. Backend analyzes resumes for **job fit & ranking**.  
+3. GPT OSS can enhance resumes and provide scoring/feedback.  
+4. Store all data in **MongoDB**.  
+5. **Dashboard:**  
+   - View all applicants  
+   - Scores, metrics, and ranking  
+   - Enhanced resumes  
+   - Summary analytics  
+
+---
+
+## System Architecture
+
+The platform has **two distinct lanes** for Candidate and Recruiter:
+
+- **Candidate Lane:** Upload → GPT OSS → Scores → Weak Areas → Courses → Enhanced Resume → Dashboard  
+- **Recruiter Lane:** Upload → GPT OSS → Scoring → Metrics → Dashboard  
+- Shared components include: Backend API, Database (MongoDB), GPT OSS, Search Engine, and Puppeteer for resume generation.  
+
+---
+
+## Features
+
+- **AI-Enhanced Resumes:** GPT OSS improves resumes based on job description.  
+- **Optimization Tips:** Personalized feedback and weak area identification.  
+- **Interview Questions:** Automatically generated based on job description.  
+- **Course Suggestions:** Recommend relevant courses or certifications for improvement.  
+- **Candidate Dashboard:** Track scores, gaps, enhanced resumes, and suggested courses.  
+- **Recruiter Dashboard:** View applicant scores, metrics, rankings, and enhanced resumes.  
+- **Resume Export:** Generate polished PDF or HTML resumes via Puppeteer.  
+
+---
